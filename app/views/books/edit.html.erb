@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="row">
+    <dic class="col-sm12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+      <h1>Editing Book</h1>
+
+      <% if @book_sub.errors.any? %>
+        <%= @book_sub.errors.count %> error prohibited this pbj from beings saved:
+        <ul>
+          <% @book_sub.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= form_with model: @book_sub do |f| %>
+      <div class="form-group">
+        <h2>Title</h2>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="form-group">
+        <h2>Opinion</h2>
+        <%= f.text_field :body %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Update Book' , class: "btn btn-success"%>
+      </div>
+
+      <%= link_to "Show", book_path(@book_sub.id) %>
+        |
+      <%= link_to "Back", books_path%>
+
+
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

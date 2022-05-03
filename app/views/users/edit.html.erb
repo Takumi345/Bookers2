@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+      <h1>User info</h1>
+
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %> error prohibited this pbj from beings saved:
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %>s</li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= form_with model: @user do |f| %>
+
+      <h2>Name</h2>
+      <%= f.text_field :name %>
+
+      <h2>Image</h2>
+      <%= f.file_field :profile_image, accept: "image/*" %>
+
+      <h2>Introduction</h2>
+      <%= f.text_area :introduction %>
+
+      <br>
+      <%= f.submit 'Update User' , class: "btn btn-secondary"%>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
